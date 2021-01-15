@@ -19,6 +19,7 @@ jobs:
       uses: hashicorp/setup-terraform@v1
       
     - name: Terraform Init
+      working-directory: ./dev
       run: terraform init
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -27,9 +28,11 @@ jobs:
         AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         
     - name: Terraform validate
+      working-directory: ./dev
       run: terraform validate
 
     - name: Terraform Apply
+      working-directory: ./dev
       run: terraform apply -auto-approve
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
