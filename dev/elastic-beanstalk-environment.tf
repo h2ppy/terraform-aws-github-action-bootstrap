@@ -15,5 +15,5 @@ module "base" {
   health_streaming_enabled = true
   environment_name = "chem101-dev2-api"
   application_name = "chem101"
-  vpcId = "vpc-0639e187a0fe017dc"
+  vpcId = aws_vpc.happy-dev-vpc.id
 }
