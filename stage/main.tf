@@ -4,7 +4,7 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket = "h2ppy-terraform-state-dev-env"
+    bucket = "h2ppy-terraform-state-stage-env"
     key = "default-infrastructure"
     region = "us-east-1"
   }

@@ -8,7 +8,7 @@ on:
 
 jobs:
   Terraform_Dev:
-    name: Terraform Plan
+    name: Terraform Plan Dev
     runs-on: ubuntu-latest
     steps:
 
@@ -40,7 +40,7 @@ jobs:
         AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   Terraform_Staging:
-    name: Terraform Plan Dev
+    name: Terraform Plan Stage
     runs-on: ubuntu-latest
     steps:
 
