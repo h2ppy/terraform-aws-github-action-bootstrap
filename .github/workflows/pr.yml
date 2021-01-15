@@ -20,19 +20,22 @@ jobs:
 
     - name: Terraform Init
       run: terraform init
+      working-directory: ./dev
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        TF_ACTION_WORKING_DIR: '.'
+        TF_ACTION_WORKING_DIR: './dev'
         AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
     - name: Terraform Validate
+      working-directory: ./dev
       run: terraform validate
 
     - name: Terraform Plan
       run: terraform plan
+      working-directory: ./dev
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        TF_ACTION_WORKING_DIR: '.'
+        TF_ACTION_WORKING_DIR: './dev'
         AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
