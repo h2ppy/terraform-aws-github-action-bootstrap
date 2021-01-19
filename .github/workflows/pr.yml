@@ -39,35 +39,35 @@ jobs:
         TF_ACTION_WORKING_DIR: './dev'
         AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  Terraform_Staging:
-    name: Terraform Plan Stage
-    runs-on: ubuntu-latest
-    steps:
-
-      - name: Checkout Repo
-        uses: actions/checkout@v2
-
-      - name: Terraform Setup
-        uses: hashicorp/setup-terraform@v1
-
-      - name: Terraform Init
-        run: terraform init
-        working-directory: ./stage
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TF_ACTION_WORKING_DIR: './stage'
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
-      - name: Terraform Validate
-        working-directory: ./stage
-        run: terraform validate
-
-      - name: Terraform Plan
-        run: terraform plan
-        working-directory: ./stage
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TF_ACTION_WORKING_DIR: './stage'
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#  Terraform_Staging:
+#    name: Terraform Plan Stage
+#    runs-on: ubuntu-latest
+#    steps:
+#
+#      - name: Checkout Repo
+#        uses: actions/checkout@v2
+#
+#      - name: Terraform Setup
+#        uses: hashicorp/setup-terraform@v1
+#
+#      - name: Terraform Init
+#        run: terraform init
+#        working-directory: ./stage
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          TF_ACTION_WORKING_DIR: './stage'
+#          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#
+#      - name: Terraform Validate
+#        working-directory: ./stage
+#        run: terraform validate
+#
+#      - name: Terraform Plan
+#        run: terraform plan
+#        working-directory: ./stage
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          TF_ACTION_WORKING_DIR: './stage'
+#          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
