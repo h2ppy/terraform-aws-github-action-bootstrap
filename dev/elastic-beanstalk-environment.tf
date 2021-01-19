@@ -8,8 +8,8 @@ module "base" {
   minor_update_preferred_start_time = "MON:06:00"
   iam_instance_ec2_role = "aws-elasticbeanstalk-ec2-role"
   platform_update_level = "minor"
-  autoscaling_minimum_capacity = "2"
-  autoscaling_maximum_capacity = "3"
+  autoscaling_minimum_capacity = "1"
+  autoscaling_maximum_capacity = "2"
   service_role = "aws-elasticbeanstalk-service-role"
   health_reporting_systemType = "enhanced"
   health_streaming_enabled = true
