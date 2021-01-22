@@ -12,6 +12,13 @@ resource "aws_autoscaling_policy" "ASGAverageCPUUtilization" {
   }
 }
 
+data "external" "target-group-arn" {
+  program = ["bash", "./get_target_group_from_load_balancer.sh"]
+  query = {
+    load_balancer_arn = module.base.aws_elastic_beanstalk_environment_load_balancers[0]
+  }
+}
+
 resource "aws_autoscaling_policy" "ALBRequestCountPerTarget" {
   name                   = "ALBRequestCountPerTarget"
   policy_type = "TargetTrackingScaling"
@@ -20,7 +27,8 @@ resource "aws_autoscaling_policy" "ALBRequestCountPerTarget" {
   target_tracking_configuration {
     predefined_metric_specification {
       predefined_metric_type = "ALBRequestCountPerTarget"
-      resource_label = format("%s/%s",split("loadbalancer/", split(":", module.base.aws_elastic_beanstalk_environment_load_balancers[0])[5])[1], split(":", trimspace(data.local_file.target_group_arn_in_local.content))[5])
+      resource_label = data.external.target-group-arn.result
+//      resource_label = format("%s/%s",split("loadbalancer/", split(":", module.base.aws_elastic_beanstalk_environment_load_balancers[0])[5])[1], split(":", trimspace(data.local_file.target_group_arn_in_local.content))[5])
     }
     target_value = 5
   }
