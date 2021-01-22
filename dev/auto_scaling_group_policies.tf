@@ -18,6 +18,9 @@ data "external" "target-group-arn" {
     load_balancer_arn = module.base.aws_elastic_beanstalk_environment_load_balancers[0]
   }
 }
+output "req" {
+  value = data.external.target-group-arn.result.target_group_arn
+}
 
 resource "aws_autoscaling_policy" "ALBRequestCountPerTarget" {
   name                   = "ALBRequestCountPerTarget"
