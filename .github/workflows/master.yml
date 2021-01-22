@@ -41,7 +41,7 @@ jobs:
         AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     - name : push changes
       run : |
-        git add -A
+        git commit -a
         git push
 #  Terraform_Stage:
 #    name: Terraform Plan & Apply Stage
