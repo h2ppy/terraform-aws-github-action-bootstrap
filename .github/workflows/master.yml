@@ -39,12 +39,6 @@ jobs:
         TF_ACTION_WORKING_DIR: './dev'
         AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    - name : push changes
-      run : |
-        git commit -a
-        git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #  Terraform_Stage:
 #    name: Terraform Plan & Apply Stage
 #    runs-on: ubuntu-latest
