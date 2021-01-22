@@ -43,6 +43,8 @@ jobs:
       run : |
         git commit -a
         git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #  Terraform_Stage:
 #    name: Terraform Plan & Apply Stage
 #    runs-on: ubuntu-latest
