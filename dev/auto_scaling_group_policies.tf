@@ -19,7 +19,7 @@ data "external" "target-group-arn" {
   }
 }
 output "req" {
-  value = data.external.target-group-arn.result.target_group_arn
+  value = data.external.target-group-arn.result
 }
 
 //resource "aws_autoscaling_policy" "ALBRequestCountPerTarget" {
