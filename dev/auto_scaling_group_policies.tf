@@ -12,13 +12,6 @@ resource "aws_autoscaling_policy" "ASGAverageCPUUtilization" {
   }
 }
 
-//data "external" "target-group-arn" {
-//  program = ["bash", "./get_target_group_from_load_balancer.sh"]
-//  query = {
-//    load_balancer_arn = module.base.aws_elastic_beanstalk_environment_load_balancers[0]
-//  }
-//}
-
 module "target_arn" {
   source            = "digitickets/cli/aws"
   aws_cli_commands  = ["elbv2", "describe-target-groups","--region us-east-1","--load-balancer-arn ${module.base.aws_elastic_beanstalk_environment_load_balancers[0]}"]
@@ -37,7 +30,6 @@ resource "aws_autoscaling_policy" "ALBRequestCountPerTarget" {
     }
     target_value = 5
   }
-  depends_on = [data.local_file.target_group_arn_in_local]
 }
 
 
