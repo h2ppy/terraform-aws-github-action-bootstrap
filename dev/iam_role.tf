@@ -8,6 +8,11 @@ data "aws_iam_policy" "AWSElasticBeanstalkWorkerTier" {
   arn = "arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier"
 }
 
+data "aws_iam_policy" "AmazonSSMFullAccess" {
+  arn = "arn:aws:iam::aws:policy/AmazonSSMFullAccess"
+}
+
+
 resource "aws_iam_role_policy_attachment" "AWSElasticBeanstalkMulticontainerDocker-policy-attach" {
   role       = aws_iam_role.dev-ec2-role.name
   policy_arn = data.aws_iam_policy.AWSElasticBeanstalkMulticontainerDocker.arn
@@ -21,6 +26,11 @@ resource "aws_iam_role_policy_attachment" "AWSElasticBeanstalkWebTier-policy-att
 resource "aws_iam_role_policy_attachment" "AWSElasticBeanstalkWorkerTier-policy-attach" {
   role       = aws_iam_role.dev-ec2-role.name
   policy_arn = data.aws_iam_policy.AWSElasticBeanstalkWorkerTier.arn
+}
+
+resource "aws_iam_role_policy_attachment" "AmazonSSMFullAccess-policy-attach" {
+  role       = aws_iam_role.dev-ec2-role.name
+  policy_arn = data.aws_iam_policy.AmazonSSMFullAccess.arn
 }
 resource "aws_iam_role" "dev-ec2-role" {
   name = "dev-ec2-role"

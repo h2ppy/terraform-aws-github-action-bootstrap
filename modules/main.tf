@@ -101,12 +101,12 @@ resource "aws_elastic_beanstalk_environment" "chem101Env" {
     value = "application"
   }
 
-  setting {
-    resource = ""
-    namespace = "aws:elasticbeanstalk:environment"
-    name = "ServiceRole"
-    value = var.service_role
-  }
+//  setting {
+//    resource = ""
+//    namespace = "aws:elasticbeanstalk:environment"
+//    name = "ServiceRole"
+//    value = var.service_role
+//  }
 
   setting {
     resource = ""
