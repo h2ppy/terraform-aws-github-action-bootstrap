@@ -33,7 +33,7 @@ resource "aws_iam_role_policy_attachment" "AmazonSSMFullAccess-policy-attach" {
   policy_arn = data.aws_iam_policy.AmazonSSMFullAccess.arn
 }
 resource "aws_iam_role" "dev-ec2-role" {
-  name = "dev-ec2-role"
+  name = "dev_ec2_role"
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
