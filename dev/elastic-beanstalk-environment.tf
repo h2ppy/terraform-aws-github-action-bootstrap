@@ -16,5 +16,4 @@ module "base" {
   environment_name = "chem101-dev2-api"
   application_name = "chem101"
   vpcId = aws_vpc.happy-dev-vpc.id
-  depends_on = [aws_acm_certificate.cert]
 }
