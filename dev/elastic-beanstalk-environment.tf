@@ -6,7 +6,7 @@ module "base" {
   eb_instance_security_group = aws_security_group.chem101-dev-eb-instance-security-group.id
   instanceType = "t2.micro"
   minor_update_preferred_start_time = "MON:06:00"
-  iam_instance_ec2_role = aws_iam_role.dev-ec2-role.name
+  iam_instance_ec2_role = aws_iam_instance_profile.dev-ec2-instance-profile.name
   platform_update_level = "minor"
   autoscaling_minimum_capacity = "1"
   autoscaling_maximum_capacity = "2"
