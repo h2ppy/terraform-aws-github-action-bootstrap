@@ -10,7 +10,7 @@ module "bastion-host" {
   key_name               = "user1"
   monitoring             = false
   vpc_security_group_ids = [aws_security_group.chem101-dev-bastion-security-group.id]
-  subnet_id              = aws_subnet.happy-dev-private-subnet-1a.id
+  subnet_id              = aws_subnet.happy-dev-public-subnet-1a.id
 
   tags = {
     Terraform   = "true"
