@@ -51,3 +51,26 @@ resource "aws_security_group" "chem101-dev-eb-instance-security-group" {
     Name = "chem101-dev-eb-instance-security-group"
   }
 }
+
+resource "aws_security_group" "chem101-dev-bastion-security-group" {
+  name        = "chem101-dev-bastion-security-group"
+  description = "chem101-dev-bastion-security-group"
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["190.68.52.233/32"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "chem101-dev-bastion-security-group"
+  }
+}
