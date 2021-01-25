@@ -55,6 +55,7 @@ resource "aws_security_group" "chem101-dev-eb-instance-security-group" {
 resource "aws_security_group" "chem101-dev-bastion-security-group" {
   name        = "chem101-dev-bastion-security-group"
   description = "chem101-dev-bastion-security-group"
+  vpc_id      = aws_vpc.happy-dev-vpc.id
 
   ingress {
     from_port   = 22
