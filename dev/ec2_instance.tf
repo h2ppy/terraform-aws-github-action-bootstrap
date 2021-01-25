@@ -5,7 +5,7 @@ module "bastion-host" {
   name                   = "bastion-host-dev"
   instance_count         = 1
 
-  ami                    = "ami-ebd02392"
+  ami                    = "ami-04b9e92b5572fa0d1"
   instance_type          = "t2.micro"
   key_name               = "user1"
   monitoring             = false
