@@ -1,7 +1,7 @@
-resource "aws_elastic_beanstalk_application" "chem101" {
-  name        = "chem101"
-  description = "chem101-ebs-app"
-}
+//resource "aws_elastic_beanstalk_application" "chem101" {
+//  name        = "chem101"
+//  description = "chem101-ebs-app"
+//}
 //resource "aws_elastic_beanstalk_environment" "chem101-dev-api" {
 //  name                = "chem101-dev-api"
 //  application         = aws_elastic_beanstalk_application.chem101.name
