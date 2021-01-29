@@ -1,7 +1,7 @@
 resource "aws_elastic_beanstalk_environment" "chem101Env" {
   name = var.environment_name
   application = var.application_name
-  solution_stack_name = "64bit Amazon Linux 2018.03 v2.11.2 running Java 8"
+  solution_stack_name = var.solution_stack_name
 
   setting {
     resource = ""

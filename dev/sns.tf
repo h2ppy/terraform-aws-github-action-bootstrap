@@ -1,3 +1,7 @@
-resource "aws_sns_topic" "alarm_email_list" {
-  name = "alarm_email_list"
+resource "aws_sns_topic" "chem101-prod-ALARM" {
+  name = "chem101-prod-ALARM"
+}
+
+resource "aws_sns_topic" "chem101-prod-WARN" {
+  name = "chem101-prod-WARN"
 }
