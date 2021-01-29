@@ -6,16 +6,11 @@ then
 	 exit
 fi
 
-aws ec2 describe-key-pairs --key-names $NAME
+privateKey=$(aws ec2 create-key-pair --key-name $NAME --query 'KeyMaterial')
 if [ $? == 0 ]; then
-	echo "Already exists"
-	exit 1;
+	aws secretsmanager create-secret --name $NAME --secret-string "$privateKey"
 else
-	ssh-keygen -q -t rsa -m PEM -N '' -f $NAME <<< y
-	aws secretsmanager create-secret --name $NAME --secret-string file://$NAME
-	echo "Key successfully inserted in secrets manager."
+	echo "Key already exists."
+	exit 0
 fi
-
-echo $NAME
-echo $keyPair
 
