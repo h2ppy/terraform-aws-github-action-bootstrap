@@ -6,9 +6,9 @@ then
 	 exit
 fi
 
-privateKey=$(aws ec2 create-key-pair --key-name $NAME --query 'KeyMaterial')
+privateKey=$(aws ec2 create-key-pair --key-name $NAME --region $AWS_REGION --query 'KeyMaterial')
 if [ $? == 0 ]; then
-	aws secretsmanager create-secret --name $NAME --secret-string "$privateKey"
+	aws secretsmanager create-secret --name $NAME --secret-string "$privateKey" --region $AWS_REGION
 else
 	echo "Key already exists."
 	exit 0
