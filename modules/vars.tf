@@ -35,7 +35,6 @@ variable "health_streaming_enabled" {
 
 }
 variable "ec2_key_pair_name" {
-  default = ""
 }
 variable "environment_name" {
 
