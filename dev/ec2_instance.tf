@@ -6,7 +6,7 @@ module "bastion-host" {
   instance_count         = 1
   ami                    = "ami-04b9e92b5572fa0d1"
   instance_type          = "t2.micro"
-  key_name               = "user1"
+  key_name               = "chem101-dev"
   associate_public_ip_address = true
   monitoring             = false
   vpc_security_group_ids = [aws_security_group.chem101-dev-bastion-security-group.id]
