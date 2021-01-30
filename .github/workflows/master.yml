@@ -29,7 +29,7 @@ jobs:
 
     - name : Create Key Pair and save in secrets Manager
       working-directory: ./dev
-      run: bash ../bash_scripts/create_ssh_keys_and_add_in_secrets_manager.sh chem101-dev
+      run: bash ../bash_scripts/create_ssh_keys_and_add_in_secrets_manager.sh chem101-dev2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

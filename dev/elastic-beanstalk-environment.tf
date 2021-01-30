@@ -17,5 +17,5 @@ module "base" {
   application_name = "chem101"
   vpcId = aws_vpc.happy-dev-vpc.id
   solution_stack_name = "64bit Amazon Linux 2 v3.1.5 running Corretto 11"
-  ec2_key_pair_name = "chem101-dev"
+  ec2_key_pair_name = "chem101-dev2"
 }
