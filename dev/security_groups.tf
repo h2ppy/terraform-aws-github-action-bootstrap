@@ -71,6 +71,13 @@ resource "aws_security_group" "chem101-dev-bastion-security-group" {
     cidr_blocks = ["190.68.52.233/32"]
   }
 
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["190.67.52.233/32"]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
